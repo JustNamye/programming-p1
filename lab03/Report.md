@@ -1,4 +1,4 @@
-# Lab XX — Lab Work Report Template
+# Lab 03 - Expressions
  
 ---
 **Course:** Programming, Part 1  
