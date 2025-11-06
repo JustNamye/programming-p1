@@ -1,4 +1,4 @@
-# Lab XX — Lab Work Report Template
+# Lab 03 — Expressions
  
 ---
 **Course:** Programming, Part 1  
@@ -10,14 +10,14 @@
  
 ## Task Description
  
-> Calculate the expression using standard C expressions
+> Calculate the expression using standard C expressions. Variant 14.
  
 ## Structure
  
 ```text
 lab03_2/
-├── task3_1.c   # Main file
-└── Report.md   # Report
+├── Report.md   # Report
+└── task3_2.c   # Main file
 ```
  
 ## Report
