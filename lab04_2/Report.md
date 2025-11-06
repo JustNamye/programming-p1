@@ -15,8 +15,8 @@
 ## Structure
  
 ```text
-lab04/
-├── task4_01.c   # Main file
+lab04_2/
+├── task4_02.c   # Main file
 └── Report.md   # Report
 ```
  
@@ -32,68 +32,54 @@ The goal of this lab is:
 ### Runtime Output
 
 ```
-Enter a three-digit number: 457
-Enter a one-digit positive number: 9
-Number 457 doesn't contain 6
-Number 457 doesn't contain 9
+Enter shape ID (1–4): 2
+triangle
 ```
 ```
-Enter a three-digit number: 963
-Enter a one-digit positive number: 8
-Number 963 contains 6
-Number 963 doesn't contain 8
+Enter shape ID (1–4): 4
+circle
 ```
 ```
-Enter a three-digit number: 609
-Enter a one-digit positive number: 9
-Number 609 contains 6
-Number 609 contains 9
+Enter shape ID (1–4): 5
+Error: ID must be between 1 and 4
 ```
 
 ---
 ### Debug session
  
 ```
-Breakpoint 1, main () at task4_01.c:3
+Breakpoint 1, main () at task4_02.c:3
 3       int main(void){
 (gdb) next
-5           printf("Enter a three-digit number: ");
+5           printf("Enter shape ID (1–4): ");
 (gdb) next
-6           if (scanf("%d", &n)!=1 || n>999 || n<100){
+6           if (scanf("%d", &type) != 1) {
 (gdb) next
-Enter a three-digit number: 993
-11              printf("Enter a one-digit positive number: ");
+Enter shape ID (1–4): 1
+10          switch (type)
 (gdb) next
-12              if (scanf("%d", &k)!=1 || k>9 || k<0){
+13              puts("line");
+(gdb) print type
+$1 = 1
+(gdb) run
+The program being debugged has been started already.
+Start it from the beginning? (y or n) y
+Starting program: /home/justn/programming-p1/lab04_2/task4_02 
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+
+Breakpoint 1, main () at task4_02.c:3
+3       int main(void){
 (gdb) next
-Enter a one-digit positive number: 0  
-18                  int e = 6;
-(gdb) print n
-$1 = 993
-(gdb) print k
-$2 = 0
+5           printf("Enter shape ID (1–4): ");
 (gdb) next
-20                  int d1 = n/100%10;
+6           if (scanf("%d", &type) != 1) {
 (gdb) next
-21                  int d2 = n/10%10;
+Enter shape ID (1–4): a 
+7               puts("Invalid input");
 (gdb) next
-22                  int d3 = n%10;
-(gdb) next
-24                  printf((d1 == e || d2 == e || d3 == e) ? 
-(gdb) print d1, d2, d3
-$3 = 3
-(gdb) print d2
-$4 = 9
-(gdb) print d3
-$5 = 3
-(gdb) print d1
-$6 = 9
-(gdb) next
-Number 993 doesn't contain 6
-28                  printf((d1 == k || d2 == k || d3 == k) ? 
-(gdb) next
-Number 993 doesn't contain 0
-32              return 0;
+Invalid input
+8               return 1;
 ```
  
 ---
