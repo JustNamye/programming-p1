@@ -10,7 +10,7 @@
  
 ## Task Description
  
-> Calculate the expression using standard C expressions
+> Calculate the expression using standard C expressions. Variant 14.
  
 ## Structure
  
