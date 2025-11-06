@@ -1,35 +1,29 @@
 #include <stdio.h>
 
 int main(void){
-    int n, k;
-    printf("Enter a three-digit number: ");
-    if (scanf("%d", &n)!=1 || n>999 || n<100){
-        printf("Incorrect value. Must be a three-digit number.\n");
+    int type;
+    printf("Enter shape ID (1–4): ");
+    if (scanf("%d", &type) != 1) {
+        puts("Invalid input");
         return 1;
     }
-    else {
-        printf("Enter a one-digit positive number: ");
-        if (scanf("%d", &k)!=1 || k>9 || k<0){
-            printf("Incorrect value. Must be a one-digit positive number.\n");
-            return 1;
-        }
-        else {
-
-            int e = 6;
-
-            int d1 = n/100%10;
-            int d2 = n/10%10;
-            int d3 = n%10;
-
-            printf((d1 == e || d2 == e || d3 == e) ? 
-            "Number %d contains %d\n" : 
-            "Number %d doesn't contain %d\n", n, e);
-
-            printf((d1 == k || d2 == k || d3 == k) ? 
-            "Number %d contains %d\n" : 
-            "Number %d doesn't contain %d\n", n, k);
-
-        return 0;
-        }
+    switch (type)
+    {
+    case 1:
+        puts("line");
+        break;
+    case 2:
+        puts("triangle");
+        break;
+    case 3:
+        puts("square");
+        break;
+    case 4:
+        puts("circle");
+        break;
+    default:
+        puts("Error: ID must be between 1 and 4");
+        return 2;
     }
+return 0;
 }
