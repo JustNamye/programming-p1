@@ -16,8 +16,8 @@
  
 ```text
 lab03/
-├── lab03_1.c   # Main file
-└── Report.md   # Report
+├── Report.md    # Report
+└── task03_1.c   # Main file
 ```
  
 ## Report
