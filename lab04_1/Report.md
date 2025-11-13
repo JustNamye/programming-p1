@@ -10,7 +10,7 @@
  
 ## Task Description
  
-> Practice writing branching logic using conditional statements
+> Practice writing branching logic using conditional statements. Variant 14.
  
 ## Structure
  
