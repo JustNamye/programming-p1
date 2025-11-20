@@ -1,40 +1,32 @@
-# Lab 04 — Conditional Statements
+# Lab 05_01 — Series Sums and Products
  
 ---
 **Course:** Programming, Part 1  
 **Institution:** NTU KhPI, Kharkiv, Ukraine  
 **Student:** Korotkiy Ivan  
-**Date:** 06.11
+**Date:** 20.11
  
 ---
  
 ## Task Description
  
-> Practice writing branching logic using conditional statements. Variant 14.
+> Compute series sums or products using loops. Variant 14.
  
 ## Structure
  
-```text
+```
 lab04_3/
-├── task4_03.c   # Main file
-└── Report.md   # Report
+├── series14_i.c   # Int task
+├── series14_i.c   # Float task
+└── Report.md      # Report
 ```
  
 ## Report
  
 The goal of this lab is: 
-- Implement decisions with if/else and the ternary operator ?:.
-- Extract and compare digits of an integer using / and %.
-- Combine simple conditions with logical operators (&&, ||, !).
-- Validate inputs and print clear diagnostic messages.
- 
-Logical condition:
-```
-√(x*x+y*y)<=R
-y<=√x
--y>=√x
-```
-
+- Learn using loops
+- Avoid overflow durin program running
+- Chose proper data types
 ---
 ### Runtime Output
 

@@ -9,7 +9,7 @@ int main(void) {
     // formula is x^n/2n
     unsigned int x;
     unsigned long long k;
-    unsigned long long S;
+    unsigned long long S = 0;
 
     if (scanf("%d %llu", &x, &k) != 2) {
         puts("Invalid input");
