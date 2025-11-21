@@ -28,9 +28,9 @@ The goal of this lab is:
 - Calculate expression.
 
 DOD of the expression:
-- x != k*𝜋/2
-- x != 𝜋/2 + k*𝜋
-- x > -9
+- $x \neq \frac{k*\pi}{2}$
+- $x \neq \frac{\pi}{2} + k*\pi$
+- $x > -9$
 
 ---
 ### Runtime Output
@@ -43,9 +43,20 @@ E(3.000) = 2.39087790
 Enter x: -8.99
 E(-8.990) = -1.18707164
 ```
+violated $x > -9$
 ```
 Enter x: -9.01
 E(-9.010) = -nan
+```
+violated $x \neq \frac{\pi}{2} + k*\pi$
+```
+Enter x: 4.71
+E(4.710) = 17754.60071091
+```
+violated $x \neq \frac{k*\pi}{2}$
+```
+Enter x: 1.57
+E(1.570) = 2560.28487240
 ```
 
 ---
