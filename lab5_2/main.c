@@ -43,4 +43,5 @@ int main(void) {
         i++;
         x = a + i * step;
     }
+    return EXIT_SUCCESS;
 }
