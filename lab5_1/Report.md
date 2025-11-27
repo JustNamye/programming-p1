@@ -15,7 +15,7 @@
 ## Structure
  
 ```
-lab04_3/
+lab05_1/
 ├── series14_i.c   # Int task
 ├── series14_i.c   # Float task
 └── Report.md      # Report
@@ -32,25 +32,25 @@ The goal of this lab is:
 
 **series14_i.c:**
 ```
-5 10
-628501
+13 3
+414
 ```
 ```
-3 6
-101
+100 10      
+Overflow!
 ```
 **series14_fp.c:**
 ```
-3 5
-18.375000
+100 10
+18041763254625513787
 ```
 ```
-2.5 11
-868.138912 
+20 30
+15080147870543527785
 ```
 ```
-19.351 42
-732255531196396302493352899026909327776619897552896.000000
+13 3
+414
 ```
 
 ---
@@ -58,82 +58,151 @@ The goal of this lab is:
  
 **series14_i.c:**
 ```
-Breakpoint 1, main () at lab5_1/series14_i.c:8
-8       int main(void) {
+Breakpoint 1, main () at lab5_1/series14_i.c:10
+warning: Source file is more recent than executable.
+10      {
 (gdb) next
-14          if (scanf("%d %llu", &x, &k) != 2) {
+15          long long S = 0;
 (gdb) next
-3 6 
-19          for (unsigned long long n = 1; n <= k; n++)
-(gdb) print k
-$1 = 6
-(gdb) print x
-$2 = 3
-(gdb) print n
-$3 = 0
+17          if (scanf("%u %u", &x, &k) != 2)
+(gdb) next
+100 10
+23          for (unsigned int n = 1; n <= k; n++)
+(gdb) next
+25              long long temp = (long long)pow(x, n);
+(gdb) next
+26              temp /= 2 * (long long) n;
+(gdb) next
+28              if (temp < 0 || (long long)S + temp > LLONG_MAX)
+(gdb) next
+34              S += (long)temp;
+(gdb) next
+23          for (unsigned int n = 1; n <= k; n++)
+(gdb) next
+25              long long temp = (long long)pow(x, n);
 (gdb) print S
-$4 = 0
+$1 = 50
+(gdb) print temp
+$2 = 50
 (gdb) next
-21              __int128_t temp = (__int128_t) pow(x, n);
+26              temp /= 2 * (long long) n;
+(gdb) print temp
+$3 = 10000
 (gdb) next
-22              temp /= 2 * n;
+28              if (temp < 0 || (long long)S + temp > LLONG_MAX)
 (gdb) next
-24              if (temp < 0 || (__int128_t) S + temp > (__int128_t) ULLONG_MAX) {
+34              S += (long)temp;
+(gdb) print n
+$4 = 2
 (gdb) next
-28              S+=(long long) temp;        
+23          for (unsigned int n = 1; n <= k; n++)
 (gdb) next
-19          for (unsigned long long n = 1; n <= k; n++)
+25              long long temp = (long long)pow(x, n);
+(gdb) next
+26              temp /= 2 * (long long) n;
+(gdb) next
+28              if (temp < 0 || (long long)S + temp > LLONG_MAX)
+(gdb) next
+34              S += (long)temp;
+(gdb) next
+23          for (unsigned int n = 1; n <= k; n++)
+(gdb) print S
+$5 = 169216
+(gdb) pritn temp
+Undefined command: "pritn".  Try "help".
 (gdb) print temp
 No symbol "temp" in current context.
 (gdb) next
-21              __int128_t temp = (__int128_t) pow(x, n);
+25              long long temp = (long long)pow(x, n);
 (gdb) next
-22              temp /= 2 * n;
-(gdb) print temp
-$5 = 9
+26              temp /= 2 * (long long) n;
+(gdb) print n
+$6 = 4
 (gdb) print S
-$6 = 1
+$7 = 169216
+(gdb) print temp
+$8 = 100000000
+(gdb) next
+28              if (temp < 0 || (long long)S + temp > LLONG_MAX)
+(gdb) next
+34              S += (long)temp;
+(gdb) next
+23          for (unsigned int n = 1; n <= k; n++)
+(gdb) print S
+$9 = 12669216
 ```
 **series14_fp.c:**
 ```
-8       int main(void) {
-(gdb) print x
-$1 = 0
-(gdb) prin k
-Ambiguous command "prin k": print, print-object, printf.
-(gdb) print k
-$2 = 0
+Breakpoint 1, main () at lab5_1/series14_fp.c:10
+warning: Source file is more recent than executable.
+10      {
 (gdb) next
-12          long double S = 0;
+15          long long S = 0;
 (gdb) next
-14          if (scanf("%lf %ld", &x, &k) != 2) {
+17          if (scanf("%d %u", &x, &k) != 2)
 (gdb) next
-5 1
-19          long n = 1;
-(gdb) print x
-$3 = 5
-(gdb) print k
-$4 = 1
+100 1000
+23          long double n = 1;
+(gdb) next
+27              long long temp = (long long)pow(x, n);
+(gdb) next
+28              temp /= 2 * n;
+(gdb) next
+30              S += temp;
+(gdb) next
+32              n++;
+(gdb) next
+33          } while (n <= k);
+(gdb) next
+27              long long temp = (long long)pow(x, n);
 (gdb) print n
-$5 = 0
-(gdb) print S
-$6 = 0
-(gdb) next
-22              long double temp = (long double) pow(x, n);
-(gdb) next
-23              temp /= 2 * n;
-(gdb) next
-24              S+=temp;        
+$1 = 2
+(gdb) print k
+$2 = 1000
 (gdb) print temp
-$7 = 2.5
+$3 = 50
 (gdb) print S
-$8 = 0
+$4 = 50
 (gdb) next
-25          } while(n < k);
+28              temp /= 2 * n;
+(gdb) print temp
+$5 = 10000
+(gdb) next next
+No symbol "next" in current context.
+(gdb) next
+30              S += temp;
+(gdb) next
+32              n++;
+(gdb) next
+33          } while (n <= k);
+(gdb) next
+27              long long temp = (long long)pow(x, n);
+(gdb) next
+28              temp /= 2 * n;
+(gdb) next
+30              S += temp;
+(gdb) next
+32              n++;
+(gdb) next
+33          } while (n <= k);
+(gdb) next
+27              long long temp = (long long)pow(x, n);
+(gdb) next
+28              temp /= 2 * n;
 (gdb) print S
-$9 = 2.5
+$6 = 169216
+(gdb) print temp
+$7 = 100000000
 (gdb) next
-27          printf("%Lf \n", S);
+30              S += temp;
+(gdb) next
+32              n++;
+(gdb) print n
+$8 = 4
+(gdb) print S
+$9 = 12669216
+(gdb) print temp
+$10 = 12500000
 ```
  
 ---

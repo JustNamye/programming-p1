@@ -1,32 +1,40 @@
 #include <stdio.h>
 #include <stdbool.h>
 #include <stdint.h>
+#include <stdlib.h>
 #include <inttypes.h>
 #include <limits.h>
 #include <math.h>
 
-int main(void) {
+int main(void)
+{
     // formula is x^n/2n
     unsigned int x;
-    unsigned long long k;
-    unsigned long long S = 0;
+    unsigned int k;
 
-    if (scanf("%d %llu", &x, &k) != 2) {
-        puts("Invalid input");
-        return 1;
-    }
+    long long S = 0;
 
-    for (unsigned long long n = 1; n <= k; n++)
+    if (scanf("%u %u", &x, &k) != 2)
     {
-        __int128_t temp = (__int128_t) pow(x, n);
-        temp /= 2 * n;
-
-        if (temp < 0 || (__int128_t) S + temp > (__int128_t) ULLONG_MAX) {
-            puts("Overflow!");
-            return 2;
-        }
-        S+=(long long) temp;        
+        puts("Invalid input");
+        exit(EXIT_FAILURE);
     }
-    printf("%llu" "\n", S);
-    return 0;
+
+    for (unsigned int n = 1; n <= k; n++)
+    {
+        long long temp = (long long)pow(x, n);
+        temp /= 2 * (long long) n;
+
+        if (temp < 0 || (long long)S + temp > LLONG_MAX)
+        {
+            puts("Overflow!");
+            exit(EXIT_FAILURE);
+        }
+
+        S += (long)temp;
+    }
+    printf("%lld"
+           "\n",
+           S);
+    return EXIT_SUCCESS;
 }
