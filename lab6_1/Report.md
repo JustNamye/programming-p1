@@ -10,15 +10,15 @@
  
 ## Task Description
  
-> Write small, single-purpose functions and demonstrate them from main. Variant 14.
+> Learn to write small, single-purpose function-like macros in C. Variant 14.
  
 ## Structure
  
 ```
-lab6_1/
+lab6_2/
 ├── build/
 ├── include/
-├── src /
+├── src/
 ├── main.c
 ├── Makefile
 └── Report.md
@@ -26,81 +26,90 @@ lab6_1/
  
 ## Report
 
-Triangle area - tri_area():
+HERON_AREA:
 - Calculates triangle area with Herons formula
 - $s=\frac{a+b+c}{2}$
-- $S=\sqrt{s(s-a)()(s-b)(s-c)}$
+- $S=\sqrt{s(s-a)(s-b)(s-c)}$
 
-Triangle type - tri_type():
+IS_RIGHT:
 - Gets max side
 - Сompares the sum of the squares of the shorter sides with the longer one.
-- If max size is bigger - triangle is acute
-- If max size equals - its right
-- If max size is smaller - its obtuse
-
-Given values:
-a=7;
-b=10;
+- If max size equals - triangle's right, otherwise - not.
 
 ---
 ### Runtime Output
 
 ```
-Enter 3 sides of triangle:3 4 5
-S of given triangle is: 6.000
-Given triangle is right.
+3 4 5
+S of triangle: 6.000000
+Triangle is right!
 ```
 ```
-Enter 3 sides of triangle:0 0 0
-Sides must be bigger than 0!
+5 3 3
+S of triangle: 4.145781
+Triangle is not right!
 ```
 ```
-Enter 3 sides of triangle:100 1 1
-Not a triangle!
+0 0 0
+Values must be > 0
 ```
 ```
-Enter 3 sides of triangle:10 10 10
-S of given triangle is: 43.301
-Given triangle is acute.
-```
-```
-Enter 3 sides of triangle:6 6 11
-S of given triangle is: 13.189
-Given triangle is obtuse
+50 100 1
+Not a triangle
 ```
 ---
-### Debug session
+### .i file excerpt
 
 ```
-Breakpoint 1, main () at main.c:6
-6       {
-(gdb) next
-12          printf("Enter 3 sides of triangle:");
-(gdb) next
-13          if (scanf("%lf %lf %lf", &a, &b, &c) != 3)
-(gdb) next
-Enter 3 sides of triangle:3 4 5
-18          if (a <= 0 || b <= 0 || c <= 0)
-(gdb) next
-24          double area = tri_area(a, b, c);
-(gdb) next
-26          if (area <= 0)
-(gdb) print area
-$1 = 6
-(gdb) print a
-$2 = 3
-(gdb) print b
-$3 = 4
-(gdb) print c
-$4 = 5
-(gdb) next
-32          printf("S of given triangle is: %.3lf\n", area);
-(gdb) next
-S of given triangle is: 6.000
-34          switch (tri_type(a, b, c))
-(gdb) next
-40              puts("Given triangle is right.");
-(gdb) exit
+# 5 "main.c"
+int main(void)
+{
+
+    double a;
+    double b;
+    double c;
+
+    if (scanf("%lf %lf %lf", &a, &b, &c) != 3)
+    {
+        puts("Error");
+        exit(
+# 15 "main.c" 3 4
+            1
+# 15 "main.c"
+                        );
+    }
+    else if (a <= 0 || b <= 0 || c <= 0)
+    {
+        puts("Values must be > 0");
+        exit(
+# 20 "main.c" 3 4
+            1
+# 20 "main.c"
+                        );
+    }
+
+    double S;
+    do { double _s = ((a) + (b) + (c)) / 2; double _S = _s * (_s - (a)) * (_s - (b)) * (_s - (c)); (S) = _S > 0 ? sqrt(_S) : 0; } while (0);
+
+    if (S<=0)
+    {
+        puts("Not a triangle");
+        exit(
+# 29 "main.c" 3 4
+            1
+# 29 "main.c"
+                        );
+    }
+    printf("S of triangle: %lf\n", S);
+
+    do { double _maxSide = fmax(a, fmax(b, c)); if (_maxSide * _maxSide == (a) * (a) + (b) * (b) + (c) * (c) - _maxSide * _maxSide) { puts("Triangle is right!"); } else { puts("Triangle is not right!"); } } while (0);;
+
+    return 
+# 35 "main.c" 3 4
+          0
+# 35 "main.c"
+                      ;
+}
 ```
  
 ---
