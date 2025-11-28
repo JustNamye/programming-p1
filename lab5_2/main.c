@@ -28,13 +28,8 @@ int main(void) {
         if (isDefined)
         {
             double tg = tan(sqrt(1+x*x));
-            if (tg==0)
-            {
-                printf("%10.5f, %10s", x, "NaN");
-            } else {
-                double d = exp(-x*x/2)*tg;
-                printf("%10.5f, %12.5f\n", x, d);
-            }
+            double d = exp(-x*x/2)*tg;
+            printf("%10.5f, %12.5f\n", x, d);
         }
         else {
             printf("%10.5f, %10s", x, "NaN");
