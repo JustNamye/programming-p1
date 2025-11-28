@@ -29,7 +29,7 @@ lab6_1/
 Triangle area - tri_area():
 - Calculates triangle area with Herons formula
 - $s=\frac{a+b+c}{2}$
-- $S=\sqrt{s(s-a)()(s-b)(s-c)}$
+- $S=\sqrt{s(s-a)(s-b)(s-c)}$
 
 Triangle type - tri_type():
 - Gets max side
@@ -37,10 +37,6 @@ Triangle type - tri_type():
 - If max size is bigger - triangle is acute
 - If max size equals - its right
 - If max size is smaller - its obtuse
-
-Given values:
-a=7;
-b=10;
 
 ---
 ### Runtime Output
