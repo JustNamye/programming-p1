@@ -42,15 +42,15 @@ Overflow!
 **series14_fp.c:**
 ```
 100 10
-18041763254625513787
+5056187782758700962.500000
 ```
 ```
 20 30
-15080147870543527785
+18871893121615047329559440154769227776.000000
 ```
 ```
 13 3
-414
+414.916667
 ```
 
 ---
@@ -134,75 +134,70 @@ $9 = 12669216
 **series14_fp.c:**
 ```
 Breakpoint 1, main () at lab5_1/series14_fp.c:10
-warning: Source file is more recent than executable.
 10      {
 (gdb) next
-15          long long S = 0;
+15          long double S = 0;
 (gdb) next
 17          if (scanf("%d %u", &x, &k) != 2)
 (gdb) next
 100 1000
-23          long double n = 1;
+23          long n = 1;
 (gdb) next
-27              long long temp = (long long)pow(x, n);
+27              long double temp = (long double)pow(x, n);
 (gdb) next
 28              temp /= 2 * n;
 (gdb) next
 30              S += temp;
-(gdb) next
-32              n++;
-(gdb) next
-33          } while (n <= k);
-(gdb) next
-27              long long temp = (long long)pow(x, n);
+(gdb) print temp
+$1 = 50
+(gdb) print S
+$2 = 0
 (gdb) print n
-$1 = 2
-(gdb) print k
-$2 = 1000
-(gdb) print temp
-$3 = 50
-(gdb) print S
-$4 = 50
-(gdb) next
-28              temp /= 2 * n;
-(gdb) print temp
-$5 = 10000
-(gdb) next next
-No symbol "next" in current context.
-(gdb) next
-30              S += temp;
+$3 = 1
 (gdb) next
 32              n++;
 (gdb) next
 33          } while (n <= k);
 (gdb) next
-27              long long temp = (long long)pow(x, n);
+27              long double temp = (long double)pow(x, n);
 (gdb) next
 28              temp /= 2 * n;
-(gdb) next
-30              S += temp;
-(gdb) next
-32              n++;
-(gdb) next
-33          } while (n <= k);
-(gdb) next
-27              long long temp = (long long)pow(x, n);
-(gdb) next
-28              temp /= 2 * n;
-(gdb) print S
-$6 = 169216
-(gdb) print temp
-$7 = 100000000
-(gdb) next
-30              S += temp;
-(gdb) next
-32              n++;
 (gdb) print n
-$8 = 4
+$4 = 2
 (gdb) print S
-$9 = 12669216
+$5 = 50
+(gdb) next
+30              S += temp;
+(gdb) print n
+$6 = 2
 (gdb) print temp
-$10 = 12500000
+$7 = 2500
+(gdb) print S
+$8 = 50
+(gdb) next
+32              n++;
+(gdb) next
+33          } while (n <= k);
+(gdb) next
+27              long double temp = (long double)pow(x, n);
+(gdb) next
+28              temp /= 2 * n;
+(gdb) next
+30              S += temp;
+(gdb) print temp
+$9 = 166666.666666666666671
+(gdb) print n
+$10 = 3
+(gdb) print s
+No symbol "s" in current context.
+(gdb) print S
+$11 = 2550
+(gdb) nex
+Ambiguous command "nex": next, nexti.
+(gdb) next
+32              n++;
+(gdb) print S
+$12 = 169216.666666666666671
 ```
  
 ---

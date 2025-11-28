@@ -12,7 +12,7 @@ int main(void)
     int x;
     unsigned int k;
 
-    long long S = 0;
+    long double S = 0;
 
     if (scanf("%d %u", &x, &k) != 2)
     {
@@ -20,11 +20,11 @@ int main(void)
         exit(EXIT_FAILURE);
     }
 
-    long double n = 1;
+    long n = 1;
 
     do
     {
-        long long temp = (long long)pow(x, n);
+        long double temp = (long double)pow(x, n);
         temp /= 2 * n;
 
         S += temp;
@@ -32,7 +32,7 @@ int main(void)
         n++;
     } while (n <= k);
 
-    printf("%llu"
+    printf("%Lf"
            "\n",
            S);
     return EXIT_SUCCESS;
