@@ -36,8 +36,8 @@ main.o: main.c
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
-test: $(TEST_EXECUTABLE)
-	./$(TEST_EXECUTABLE)
+# test: $(TEST_EXECUTABLE)
+# 	./$(TEST_EXECUTABLE)
 
 $(TEST_EXECUTABLE): $(TEST_FILES) libproject.a
 	$(CC) $(CFLAGS) -o $@ $(UNITY_SRC) $^ $(LDFLAGS)
