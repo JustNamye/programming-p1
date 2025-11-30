@@ -130,3 +130,21 @@ void checkedInList(Hotel *hotel)
             printf("Empty\n");
     }
 }
+
+void guestList(Hotel *hotel)
+{
+    for (int i = 0; i < hotel->guestCount; i++)
+    {
+        Guest guest = hotel->guests[i];
+        printf("%s\n", guest.name);
+    }
+}
+
+void roomsList(Hotel *hotel)
+{
+    for (int i = 0; i < hotel->guestCount; i++)
+    {
+        Room room = hotel->rooms[i];
+        printf("Room %d\n", room.number+1);
+    }
+}

@@ -57,6 +57,32 @@ Room 8: A6
 Room 9: A7
 Room 10: Bad1
 Room 11: Bad2
+
+Rooms:
+Room 1
+Room 2
+Room 3
+Room 4
+Room 5
+Room 6
+Room 7
+Room 8
+Room 9
+Room 10
+Room 11
+
+Guests:
+Maxim
+Artem
+Oleg
+A1
+A3
+A4
+A5
+A6
+A7
+Bad1
+Bad2
 <--->
 Checked out Maxim from room number 1
 Checked out A3 from room number 4
@@ -73,6 +99,26 @@ Room 8: A6
 Room 9: A7
 Room 10: Bad1
 Room 11: Bad2
+
+Rooms:
+Room 1
+Room 2
+Room 3
+Room 4
+Room 5
+Room 6
+Room 7
+Room 8
+
+Guests:
+Artem
+Oleg
+A1
+A4
+A6
+A7
+Bad1
+Bad2
 ```
  
 ---

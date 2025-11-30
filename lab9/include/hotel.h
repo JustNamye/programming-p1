@@ -30,5 +30,7 @@ Guest regGuest(const char* name);
 void checkInGuest(Hotel* hotel, Guest guest, Room* room);
 void checkOutGuest(Hotel* hotel, Guest guest);
 void checkedInList(Hotel* hotel);
+void guestList(Hotel *hotel);
+void roomsList(Hotel *hotel);
 
 #endif // HOTEL_H_

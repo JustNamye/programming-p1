@@ -30,6 +30,10 @@ int main(void)
     printf("<--->\n");
 
     checkedInList(&hotel);
+    puts("\nRooms:");
+    roomsList(&hotel);
+    puts("\nGuests:");
+    guestList(&hotel);
 
     printf("<--->\n");
 
@@ -40,6 +44,10 @@ int main(void)
     printf("<--->\n");
 
     checkedInList(&hotel);
+    puts("\nRooms:");
+    roomsList(&hotel);
+    puts("\nGuests:");
+    guestList(&hotel);
 
     return EXIT_SUCCESS;
 }
