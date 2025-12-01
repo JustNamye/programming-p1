@@ -1,15 +1,15 @@
-# Lab 10 —  Structs in C
+# Lab 10 —  Files in C
 
 **Course:** Programming, Part 1  
 **Institution:** NTU KhPI, Kharkiv, Ukraine  
 **Student:** Korotkiy Ivan  
-**Date:** 30.11
+**Date:** 01.12
  
 ---
  
 ## Task Description
  
->   The objective of this lab assignment is to familiarize students with structs in C programming.
+>   To learn how to work with text and binary files in the C programming language
  
 ## Structure
  
