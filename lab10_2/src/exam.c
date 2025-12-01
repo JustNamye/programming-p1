@@ -1,10 +1,9 @@
-// exam.c
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include "exam.h"
 
-#define FILE_NAME "exam.txt"
+#define BIN_FILE "exam.bin"
 
 static void loadExamFromFile(Exam *exam);
 
@@ -56,92 +55,28 @@ void examInit(Exam *exam)
 
 static void loadExamFromFile(Exam *exam)
 {
-    FILE *f = fopen(FILE_NAME, "r");
+    FILE *f = fopen(BIN_FILE, "rb");
     exam->subjectCount = 0;
     if (!f)
-    {
         return;
-    }
 
-    char line[STRING_LEN];
-    while (fgets(line, sizeof(line), f))
-    {
-        line[strcspn(line, "\n")] = '\0';
-        if (line[0] == '\0')
-            continue;
-
-        Subject subj;
-        memset(&subj, 0, sizeof(Subject));
-        strncpy(subj.subjectName, line, STRING_LEN - 1);
-        subj.subjectName[STRING_LEN - 1] = '\0';
-        subj.resultCount = 0;
-
-        int d = 0, m = 0, y = 0;
-        if (fgets(line, sizeof(line), f) == NULL)
-            break;
-        if (sscanf(line, "%d %d %d", &d, &m, &y) != 3)
-        {
-            break;
-        }
-        subj.date.day = d;
-        subj.date.mounth = m;
-        subj.date.year = y;
-
-        while (fgets(line, sizeof(line), f))
-        {
-            line[strcspn(line, "\n")] = '\0';
-            if (strcmp(line, "END") == 0)
-                break;
-
-            char name[STRING_LEN];
-            int grade;
-            if (sscanf(line, "%49s %d", name, &grade) == 2)
-            {
-                if (subj.resultCount < STUDENTS_MAX)
-                {
-                    strncpy(subj.result[subj.resultCount].studentName, name, STRING_LEN - 1);
-                    subj.result[subj.resultCount].studentName[STRING_LEN - 1] = '\0';
-                    subj.result[subj.resultCount].grade = grade;
-                    subj.resultCount++;
-                }
-            }
-        }
-
-        if (exam->subjectCount < SUBJECT_MAX)
-        {
-            exam->subject[exam->subjectCount] = subj;
-            exam->subjectCount++;
-        }
-        else
-        {
-            break;
-        }
-    }
+    fread(&exam->subjectCount, sizeof(int), 1, f);
+    fread(exam->subject, sizeof(Subject), exam->subjectCount, f);
 
     fclose(f);
 }
 
 void createFile(Exam *exam)
 {
-    FILE *f = fopen(FILE_NAME, "w");
+    FILE *f = fopen(BIN_FILE, "wb");
     if (!f)
     {
         puts("Cannot create file!");
         return;
     }
 
-    for (int i = 0; i < exam->subjectCount; i++)
-    {
-        Subject *s = &exam->subject[i];
-        fprintf(f, "%s\n", s->subjectName);
-        fprintf(f, "%d %d %d\n", s->date.day, s->date.mounth, s->date.year);
-        for (int j = 0; j < s->resultCount; j++)
-        {
-            Result *r = &s->result[j];
-            fprintf(f, "%s %d\n", r->studentName, r->grade);
-        }
-        fprintf(f, "END\n");
-    }
+    fwrite(&exam->subjectCount, sizeof(int), 1, f);
+    fwrite(exam->subject, sizeof(Subject), exam->subjectCount, f);
 
     fclose(f);
     puts("File created.\n");
@@ -244,7 +179,6 @@ void deleteOld(Exam *exam)
     createFile(exam);
     puts("Old records deleted.\n");
 }
-
 
 void addSubject(Exam *exam, Subject subject)
 {

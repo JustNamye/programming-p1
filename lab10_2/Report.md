@@ -20,7 +20,7 @@ lab10/
 ├── src/
 ├── main.c
 ├── Makefile
-├── exam.txt
+├── exam.bin
 └── Report.md
 ```
  
@@ -109,15 +109,6 @@ Choose an action:
 0 - exit
 Enter choice: 0
 Exiting.
-```
-**File state:**
-```
-Math
-22 11 2025
-Kate 98
-Alex 85
-Max 78
-END
 ```
 ```
 Choose an action:
@@ -259,22 +250,6 @@ Choose an action:
 Enter choice: 0
 Exiting.
 ```
-**File state:**
-```
-Math
-22 11 2025
-Kate 98
-Alex 85
-Max 78
-Bob 57
-END
-IT
-25 5 2020
-Ivan 99
-Max 100
-Mark 85
-END
-```
 ```
 Choose an action:
 1 - create file
@@ -329,15 +304,5 @@ Choose an action:
 0 - exit
 Enter choice: 0
 Exiting.
-```
-**File state:**
-```
-Math
-22 11 2025
-Kate 98
-Alex 85
-Max 78
-Bob 57
-END
 ```
 ---
