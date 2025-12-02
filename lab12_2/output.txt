@@ -1,0 +1,5 @@
+This is a test file. It contains some warnings.
+Be careful: warning occurred in the system. Another warning is found.
+Check this line! Is everything correct? Maybe there is an warning here.
+This line has no issues.
+Finally, make sure to fix all warnings before release.
