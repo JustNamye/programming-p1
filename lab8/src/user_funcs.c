@@ -43,11 +43,22 @@ int cmp_char(const void *a, const void *b)
     return (*(char *)a - *(char *)b);
 }
 
-void ascii_sort(char array[], int lenth)
+void ascii_sort(char array[], int length)
 {
-    qsort(array, lenth, sizeof(char), cmp_char);
+    char temp;
+
+    for (int i = 0; i < length - 1; i++) {
+        for (int j = 0; j < length - i - 1; j++) {
+            if (array[j] > array[j + 1]) {
+                temp = array[j];
+                array[j] = array[j + 1];
+                array[j + 1] = temp;
+            }
+        }
+    }
+
     printf("\nSorted array by ascii:");
-    for (int i = 0; i < lenth; i++) {
+    for (int i = 0; i < length; i++) {
         printf("%c", array[i]);
     }
 }
