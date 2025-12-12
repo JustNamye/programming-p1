@@ -1,0 +1,7 @@
+Math
+22 11 2025
+Kate 98
+Alex 85
+Max 78
+Bob 57
+END
