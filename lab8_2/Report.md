@@ -41,3 +41,42 @@ Given task list:
 
  
 ---
+### Runtime output:
+```
+Matrix:
+2 9 8 6 6 
+5 1 7 3 5 
+2 4 8 5 7 
+2 8 3 9 5 
+8 4 2 7 8 
+Sum of upper triangle: 89
+Sum of columns:  19 26 28 30 31
+Amount of more then avrg nums: 17
+Interquartile range: 5
+```
+```
+Matrix:
+6 8 9 2 0 
+6 9 3 2 7 
+4 3 0 3 2 
+5 9 2 7 1 
+0 6 6 5 3 
+Sum of upper triangle: 62
+Sum of columns:  21 35 20 19 13
+Amount of more then avrg nums: 17
+Interquartile range: 4
+```
+```
+Matrix:
+0 4 6 2 6 
+9 7 7 7 4 
+3 6 7 8 2 
+5 0 8 8 7 
+7 1 1 7 8 
+Sum of upper triangle: 83
+Sum of columns:  24 18 29 32 27
+Amount of more then avrg nums: 20
+Interquartile range: 4
+```
+
+---
