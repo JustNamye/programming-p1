@@ -93,17 +93,27 @@ Triangle:
 2626262626262626262626262626262626262626262626262626
 272727272727272727272727272727272727272727272727272727
 ```
-### Time taken for input value 5000:
+### Time taken:
 **Recursive**
 ```
-real    0m9.887s
-user    0m0.694s
-sys     0m0.640s
+real    0m0.689s
+user    0m0.001s
+sys     0m0.010s
+```
+```
+real    0m35.518s
+user    0m2.809s
+sys     0m2.402s
 ```
 **Itarative**
 ```
-real    0m12.692s
-user    0m0.672s
-sys     0m0.673s
+real    0m10.040s
+user    0m3.823s
+sys     0m0.001s
+```
+```
+real    0m33.732s
+user    0m2.718s
+sys     0m2.532s
 ```
 ---
